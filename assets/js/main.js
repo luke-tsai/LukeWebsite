@@ -315,9 +315,13 @@ function toggled(){
 			$body.on('click', function(event) {
 
 				// Article visible? Hide.
-					if ($body.hasClass('is-article-visible'))
-						$main._hide(true);
-
+					if ($body.hasClass('is-article-visible')){
+					    if (location.hash.startsWith("#proj")){
+						    window.history.back();
+						} else{
+							$main._hide(true);
+						}
+				    }
 			});
 
 			$window.on('keyup', function(event) {
@@ -391,12 +395,15 @@ function toggled(){
 
 			}
 
+
             $("#toggler").click(function(){
                 if ($(".technical").is(":visible")){
                     $(".technical").hide(200);
+                    location.hash = '#personal';
                     $(".personal").delay(200).show(200);
                 } else{
                     $(".personal").hide(200);
+                    location.hash = '#technical';
                     $(".technical").delay(200).show(200);
                     }
                 });
@@ -406,7 +413,14 @@ function toggled(){
 			// Hide main, articles.
 				$main.hide();
 				$main_articles.hide();
-                $(".personal").hide();
+
+            if (location.hash.startsWith("#personal")) {
+                    document.getElementById("toggler").checked = true;
+                    $(".technical").hide();
+            } else{
+                    document.getElementById("toggler").checked = false;
+                    $(".personal").hide();
+            }
 
 			// Initial article.
 				if (location.hash != ''
