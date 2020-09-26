@@ -316,7 +316,8 @@ function toggled(){
 
 				// Article visible? Hide.
 					if ($body.hasClass('is-article-visible')){
-					    if (location.hash.startsWith("#proj")){
+					    if (location.hash.startsWith("#proj")
+					    &&  history.length > 2 ) {
 						    window.history.back();
 						} else{
 							$main._hide(true);
