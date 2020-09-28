@@ -199,13 +199,9 @@ input:checked + .slider:before {
     overflow: hidden;
     transition: max-height 0.75s;
 }
-.accordion section > .caret{
-    transition: all .5s;
-}
 
 .accordion section:hover > .accordion_content {
     max-height: 20em;
-
 }
 
 .accordion section:hover > .caret {
