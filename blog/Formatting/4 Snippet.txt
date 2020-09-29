@@ -1,0 +1,9 @@
+
+						<a href="#[id]" class="[tag] blogpost">
+							<section>
+							<hr class="tight"/>
+							<h3>[title]</h3>
+							<p class="single">[body-snippet]</p>
+							<br>
+							</section>
+						</a>

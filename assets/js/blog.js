@@ -335,30 +335,63 @@
 
 			$window.on('hashchange', function(event) {
 
-				// Empty hash?
-					if (location.hash == ''
-					||	location.hash == '#') {
+				switch(location.hash){
+            	case '#': case '':
+            	 	// Prevent default.
+						event.preventDefault();
+						event.stopPropagation();
 
-						// Prevent default.
-							event.preventDefault();
-							event.stopPropagation();
+					// Hide.
+						$main._hide();
+            	 	$(".theology").show();
+            	 	$(".philosophy").show();
+            	 	$(".politics").show();
+            	 	$(".art").show();
+            	 	$(".writing").show();
+            	 	break;
+            	case "#theology":
+            	 	$(".theology").show();
+            	 	$(".philosophy").hide();
+            	 	$(".politics").hide();
+            	 	$(".art").hide();
+            	 	$(".writing").hide();
+            	 	break;
+            	case "#philosophy":
+            	 	$(".theology").hide();
+            	 	$(".philosophy").show();
+            	 	$(".politics").hide();
+            	 	$(".art").hide();
+            	 	$(".writing").hide();
+            	 	break;
+            	case "#politics":
+            	 	$(".theology").hide();
+            	 	$(".philosophy").hide();
+            	 	$(".politics").show();
+            	 	$(".art").hide();
+            	 	$(".writing").hide();
+            	 	break;
+            	case "#art":
+            	 	$(".theology").hide();
+            	 	$(".philosophy").hide();
+            	 	$(".politics").hide();
+            	 	$(".art").show();
+            	 	$(".writing").hide();
+            	 	break;
+            	case "#writing":
+            	 	$(".theology").hide();
+            	 	$(".philosophy").hide();
+            	 	$(".politics").hide();
+            	 	$(".art").hide();
+            	 	$(".writing").show();
+            	 	break;
+            	default:
+            	 	// Prevent default.
+						event.preventDefault();
+						event.stopPropagation();
 
-						// Hide.
-							$main._hide();
-
-					}
-
-				// Otherwise, check for a matching article.
-					else if ($main_articles.filter(location.hash).length > 0) {
-
-						// Prevent default.
-							event.preventDefault();
-							event.stopPropagation();
-
-						// Show article.
-							$main._show(location.hash.substr(1));
-
-					}
+					// Show article.
+						$main._show(location.hash.substr(1));
+            }
 
 			});
 
@@ -385,32 +418,11 @@
 
 			}
 
-
-            $("#toggler").click(function(){
-                if ($(".technical").is(":visible")){
-                    $(".technical").hide(200);
-                    location.hash = '#personal';
-                    $(".personal").delay(200).show(200);
-                } else{
-                    $(".personal").hide(200);
-                    location.hash = '#technical';
-                    $(".technical").delay(200).show(200);
-                    }
-                });
-
 		// Initialize.
 
 			// Hide main, articles.
 				$main.hide();
 				$main_articles.hide();
-
-            if (location.hash.startsWith("#personal")) {
-                    document.getElementById("toggler").checked = true;
-                    $(".technical").hide();
-            } else{
-                    document.getElementById("toggler").checked = false;
-                    $(".personal").hide();
-            }
 
 			// Initial article.
 				if (location.hash != ''

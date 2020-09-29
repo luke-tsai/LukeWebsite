@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Luke Tsai</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="..//assets/css/main.css" />
+		<link rel="shortcut icon" href="../favicon.ico">
+
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="fixed">
+						<!-- Tags -->
+						<div style="text-align:center;flex-wrap: wrap;">
+							<ul class="actions" style="text-align:center;justify-content: center;flex-wrap: wrap; margin-bottom: 1rem">
+								<li><a href="#theology" class="button primary blogtopic">Theology</a></li>
+								<li><a href="#philosophy" class="button primary blogtopic">Philosophy</a></li>
+								<li><a href="#politics" class="button primary blogtopic">Politics</a></li>
+								<li><a href="#art" class="button primary blogtopic">Art</a></li>
+								<li><a href="#writing" class="button primary blogtopic">Writing</a></li>
+								<li><a href="#" class="button primary blogtopic">All</a></li>
+							</ul>
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
