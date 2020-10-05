@@ -288,6 +288,14 @@ input:checked + .slider:before {
   			text-overflow: ellipsis;
 	    }
 
+	    p.head {
+		    display:inline-block;
+  			text-transform: uppercase;
+  			letter-spacing: 0.2rem;
+  			font-size: 0.8rem;
+  			line-height: 2;
+	    }
+
 	h1, h2, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-weight: 600;
@@ -412,6 +420,11 @@ input:checked + .slider:before {
 		border: 0;
 		border-bottom: solid 1px #ffffff;
 		margin: 0 0 1.5rem 0;
+	}
+	hr.tight2 {
+		border: 0;
+		border-bottom: solid 1px #ffffff;
+		margin: 1.5rem 0 0 0;
 	}
 
 	.align-left {
