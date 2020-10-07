@@ -340,48 +340,57 @@
             	 	// Prevent default.
 						event.preventDefault();
 						event.stopPropagation();
-
 					// Hide.
 						$main._hide();
             	 	$(".theology").show();
             	 	$(".philosophy").show();
-            	 	$(".politics").show();
+            	 	$(".faith").show();
             	 	$(".art").show();
             	 	$(".writing").show();
             	 	break;
             	case "#theology":
-            	 	$(".theology").show();
+            	 	$(".theology").hide();
             	 	$(".philosophy").hide();
-            	 	$(".politics").hide();
+            	 	$(".faith").hide();
             	 	$(".art").hide();
             	 	$(".writing").hide();
+            	 	
+            	 	$(".theology").show();
             	 	break;
             	case "#philosophy":
             	 	$(".theology").hide();
-            	 	$(".philosophy").show();
-            	 	$(".politics").hide();
+            	 	$(".philosophy").hide();
+            	 	$(".faith").hide();
             	 	$(".art").hide();
             	 	$(".writing").hide();
+            	 	
+            	 	$(".philosophy").show();
             	 	break;
-            	case "#politics":
+            	case "#faith":
             	 	$(".theology").hide();
             	 	$(".philosophy").hide();
-            	 	$(".politics").show();
+            	 	$(".faith").hide();
             	 	$(".art").hide();
             	 	$(".writing").hide();
+            	 	
+            	 	$(".faith").show();
             	 	break;
             	case "#art":
             	 	$(".theology").hide();
             	 	$(".philosophy").hide();
-            	 	$(".politics").hide();
-            	 	$(".art").show();
+            	 	$(".faith").hide();
+            	 	$(".art").hide();
             	 	$(".writing").hide();
+            	 	
+            	 	$(".art").show();
             	 	break;
             	case "#writing":
             	 	$(".theology").hide();
             	 	$(".philosophy").hide();
-            	 	$(".politics").hide();
+            	 	$(".faith").hide();
             	 	$(".art").hide();
+            	 	$(".writing").hide();
+            	 	
             	 	$(".writing").show();
             	 	break;
             	default:

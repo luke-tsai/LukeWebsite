@@ -4,7 +4,7 @@ function Blog
     %% imports tidbits
     fileloc='C:\Users\ltsai\Documents\Personal\Github\LukeWebsite\LukeWebsite\blog\';
        
-    source_files = dir(fullfile([fileloc,'Blog Posts\'], '*.txt'));
+    source_files = dir(fullfile([fileloc,'Blog Posts\'], '*.html'));
     initial=fileread([fileloc,'Formatting\1 Initial.txt']);
     article=fileread([fileloc,'Formatting\2 Article.txt']);
     space=fileread([fileloc,'Formatting\3 Space.txt']);
@@ -21,19 +21,12 @@ function Blog
         clear data data2 posttitle posttags postid postlines
         disp([num2str(i),' of ',num2str(length(source_files))])
         data=fileread([fileloc,'Blog Posts\',source_files(i).name]);
-        data2=char(strsplit(data,{char(13),char(10)},'CollapseDelimiters',true));
-        posttitle=strtrim(data2(1,:));
-        posttags=data2(2,:);
-        postid=source_files(i).name(1:(length(source_files(i).name)-4));
-        postlines=data2(3:end,:);
-        posttext='';
-        for j=1:size(postlines,1)
-            if regexp(postlines(j,:), regexptranslate('wildcard','<*>'))
-                posttext=strcat(posttext,postlines(j,:));
-            else
-                posttext=strcat(posttext,'<p class="bottom">',postlines(j,:),'</p>');
-            end
-        end
+        data2=(strsplit(data,{char(13),char(10)},'CollapseDelimiters',true));
+        posttitle=char(data2(1));
+        posttitle=posttitle(8:end);
+        postid=source_files(i).name(1:(length(source_files(i).name)-5));
+        posttext=strjoin(data2(4:end));
+        
         post=article;
         post=strrep(post,'[id]',postid);
         post=strrep(post,'[title]',posttitle);
@@ -47,18 +40,22 @@ function Blog
         clear data data2 posttitle posttags postid postlines
         disp([num2str(i),' of ',num2str(length(source_files))])
         data=fileread([fileloc,'Blog Posts\',source_files(i).name]);
-        data2=char(strsplit(data,{char(13),char(10)},'CollapseDelimiters',true));
-        posttitle=strtrim(data2(1,:));
-        posttags=data2(2,:);
-        postid=source_files(i).name(1:(length(source_files(i).name)-4));
+        data2=(strsplit(data,{char(13),char(10)},'CollapseDelimiters',true));
+        posttitle=char(data2(1));
+        posttitle=posttitle(8:end);
+        posttags=char(data2(2));
+        posttags=posttags(7:end);
+        postid=source_files(i).name(1:(length(source_files(i).name)-5));
+        posttext=char(data2(4));
+        posttext = regexprep(posttext,'<.*?>','');
+        
         post=snippet;
         post=strrep(post,'[id]',postid);
         post=strrep(post,'[title]',posttitle);
         post=strrep(post,'[tag]',posttags);
-        post=strrep(post,'[body-snippet]',strtrim(data2(3,:)));
+        post=strrep(post,'[body-snippet]',posttext);
         fprintf(fid, '%s', post);
     end
-    
     
     fprintf(fid, '%s', ending);
     fclose(fid);

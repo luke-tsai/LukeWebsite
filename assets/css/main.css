@@ -343,6 +343,7 @@ input:checked + .slider:before {
 	}
 
 	h4 {
+		margin: 1rem 0;
 		font-size: 0.8rem;
 	}
 

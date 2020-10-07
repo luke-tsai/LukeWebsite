@@ -21,7 +21,7 @@
 							<ul class="actions" style="text-align:center;justify-content: center;flex-wrap: wrap; margin-bottom: 1rem">
 								<li><a href="#theology" class="button primary blogtopic">Theology</a></li>
 								<li><a href="#philosophy" class="button primary blogtopic">Philosophy</a></li>
-								<li><a href="#politics" class="button primary blogtopic">Politics</a></li>
+								<li><a href="#faith" class="button primary blogtopic">Faith</a></li>
 								<li><a href="#art" class="button primary blogtopic">Art</a></li>
 								<li><a href="#writing" class="button primary blogtopic">Writing</a></li>
 								<li><a href="#" class="button primary blogtopic">All</a></li>
